@@ -5,7 +5,7 @@ export default function Meme() {
   const [meme, setMeme] = React.useState({
     topText: "",
     bottomText: "",
-    randomImage: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
   });
 
   //variables to access state
@@ -19,21 +19,33 @@ export default function Meme() {
   });
 
   //function that returns a random meme image from the allMemes data
-  function memeImage() {
+  function getMemeImage() {
     const random = Math.floor(Math.random() * allMemes.length);
-    const memeUrl = allMemes[random].memeUrl;
+    const url = allMemes[random].memeUrl;
     setMeme((prevMeme) => ({
       ...prevMeme,
-      randomImage: memeUrl,
+      randomImage: url,
     }));
   }
 
   return (
     <main>
       <div className="form">
-        <input type="text" placeholder="Top text" className="form--input" />
+        <input
+          type="text"
+          placeholder="Top text"
+          className="form--input"
+          name="topText"
+          value={meme.topText}
+        />
 
-        <input type="text" placeholder="Bottom text" className="form--input" />
+        <input
+          type="text"
+          placeholder="Bottom text"
+          className="form--input"
+          name="bottomText"
+          value={meme.bottomText}
+        />
 
         <button className="form--button">Get a new meme image 🃏</button>
       </div>
