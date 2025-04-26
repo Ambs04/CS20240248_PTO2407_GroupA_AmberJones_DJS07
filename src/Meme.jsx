@@ -16,7 +16,7 @@ export default function Meme() {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => setAllMemes(data.data.memes));
-  });
+  }, []);
 
   //function that returns a random meme image from the allMemes data
   function getMemeImage() {
@@ -47,12 +47,14 @@ export default function Meme() {
           value={meme.bottomText}
         />
 
-        <button className="form--button">Get a new meme image 🃏</button>
+        <button className="form--button" onClick={getMemeImage}>
+          Get a new meme image 🃏
+        </button>
       </div>
       <div>
-        <img className="meme--image" />
-        <h2 className="meme--text top"></h2>
-        <h2 className="meme--text bottom"></h2>
+        <img src={meme.randomImage} className="meme--image" />
+        <h2 className="meme--text top">{meme.topText}</h2>
+        <h2 className="meme--text bottom">{meme.bottomText}</h2>
       </div>
     </main>
   );
