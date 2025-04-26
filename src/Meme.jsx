@@ -20,6 +20,11 @@ export default function Meme() {
 
         <button className="form--button">Get a new meme image 🃏</button>
       </div>
+      <div>
+        <img />
+        <h2></h2>
+        <h2></h2>
+      </div>
     </main>
   );
 }
