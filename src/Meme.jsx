@@ -23,6 +23,7 @@ export default function Meme() {
     const random = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[random].url;
     setMeme((prevMeme) => ({
+      //create an object that contains all of the content from the meme array but overwrites the randomImage property to take the random url.
       ...prevMeme,
       randomImage: url,
     }));
