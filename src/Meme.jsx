@@ -1,17 +1,17 @@
 import React from "react";
 
 export default function Meme() {
-  //setting object as initial state
+  //setting object as initial state for meme text and default image
   const [meme, setMeme] = React.useState({
     topText: "",
     bottomText: "",
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
 
-  //variables to access state
+  //variable [state] to store all memes fetched
   const [allMemes, setAllMemes] = React.useState([]);
 
-  //fetch memes from an API
+  //fetch memes from an API and effect tells it to send the meme to setAllMemes array [thus updating state]
   React.useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
@@ -28,6 +28,7 @@ export default function Meme() {
     }));
   }
 
+  //records each keystroke and each value typed is added relative to the input names
   function handle(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
