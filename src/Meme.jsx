@@ -2,11 +2,11 @@ export default function Meme() {
   return (
     <main>
       <div>
-        <input />
+        <input type="text" placeholder="Top text" />
 
-        <input />
+        <input type="text" placeholder="Bottom text" />
 
-        <button></button>
+        <button>Get a new meme image 🃏</button>
       </div>
     </main>
   );
