@@ -1,4 +1,16 @@
+import React from "react";
+
 export default function Meme() {
+  //variables to access state
+  const [allMemes, setAllMemes] = React.useState([]);
+
+  //fetch memes from an API
+  React.useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMemes(data.data.memes));
+  });
+
   return (
     <main>
       <div className="form">
