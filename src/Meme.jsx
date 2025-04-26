@@ -1,6 +1,13 @@
 import React from "react";
 
 export default function Meme() {
+  //setting object as initial state
+  const [meme, setMeme] = React.useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "",
+  });
+
   //variables to access state
   const [allMemes, setAllMemes] = React.useState([]);
 
@@ -10,6 +17,16 @@ export default function Meme() {
       .then((res) => res.json())
       .then((data) => setAllMemes(data.data.memes));
   });
+
+  //function that returns a random meme image from the allMemes data
+  function memeImage() {
+    const random = Math.floor(Math.random() * allMemes.length);
+    const memeUrl = allMemes[random].memeUrl;
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      randomImage: memeUrl,
+    }));
+  }
 
   return (
     <main>
