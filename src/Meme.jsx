@@ -21,9 +21,9 @@ export default function Meme() {
         <button className="form--button">Get a new meme image 🃏</button>
       </div>
       <div>
-        <img />
-        <h2></h2>
-        <h2></h2>
+        <img className="meme--image" />
+        <h2 className="meme--text top"></h2>
+        <h2 className="meme--text bottom"></h2>
       </div>
     </main>
   );
